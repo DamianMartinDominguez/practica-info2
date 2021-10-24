@@ -284,8 +284,65 @@ if(!feof(p))
 
 void listar(void)
 {
-
+int f,k=1;
+char c='n',s='n',clave[6];
+FILE *p;
+if((p=fopen("menuABM","rb"))==NULL)
+{
+printf("\n problemas al abrir el archvo\n");
+getch();
+s=27;
 }
+if(s!='27')
+{
+system("clr");
+printf("\n\n\nMENU LISTAR  \n");
+printf("=================  \n");
+printf("ingrese la clave \n");
+fflush(stdin);
+gets(cliente_t.clave);
+
+while(!feof(p))
+{
+f=fread(&cliente_t,sizeof(cliente_t),1,p);
+k++;
+if(f!=1)
+{
+if(!feof(p))
+{
+  printf("\nno leyo el ultimo registro");
+  printf("\n *** %d ***",f);
+  getch();
+  }
+  else
+  break;
+ }
+ if(!strcmp(cliente_t.clave,clave)>0)
+ {
+ gotoxy(1,6);
+  printf("\n clave nombre credito");
+  printf("\n ====================");
+  gotoxy(1,8+k);
+  printf("\n %5s %-20s %10.2f",cliente_t.clave,cliente_t.nombre,cliente_t.credito);
+  gotoxy(1,23);
+  printf("toque una tecla para seguir");
+  if(k==12)
+  {
+  getch();
+  k=1;
+  system("clr");
+  printf("\n\n\nMENU LISTAR  \n");
+  printf("=================  \n");
+  }
+  }
+  }
+  fclose(p);
+  if(k!=1)
+  getch();
+  }
+  }
+  
+  
 
 
 
