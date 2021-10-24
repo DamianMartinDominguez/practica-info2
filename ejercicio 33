@@ -107,7 +107,53 @@ fclose(p);
 
 void ver(void)
 {
-
+int f,k=1;
+char s='n',clave[6];
+FILE *p;
+if((p=fopen("menuABM","rb"))==NULL)
+{
+printf("\n problemas al abrir el archvo\n");
+getch();
+s=27;
+}
+if(s!=27)
+{
+system("clr");
+printf("\n\n\nMENU VER  \n");
+printf("=================  \n");
+printf("ingrese la clave \n");
+fflush(stdin);
+gets(cliente_t.clave);
+while(!feof(p))
+{
+  f=fread(&cliente_t,sizeof(cliente_t),1,p);
+  if(f!=1)
+  {
+  if(!feof(p))
+  {
+  printf("\nno leyo el ultimo registro");
+  printf("\n *** %d ***",f);
+  getche();
+  }
+  
+  }
+ if(!strcmp(cliente.clave,clave))
+ {
+   printf("\nno nombre: %s",cliente_t.nombre);
+   printf("\nno credito: %8.2f",cliente_t.credito);
+   printf("\n toque una tecla para seguir");
+   getche();
+   k=0;
+   break;
+ }
+}
+if(k)
+{
+printf("\n no se encontro ");
+getche();
+}
+fclose(p);
+}
 }
 
 
