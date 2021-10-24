@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+struct cliente
+{
+  char cl[6];
+  char nombre[20];
+  float credito;
+}cliente_t;
+
+// prototipos
+
+void carga(void);
+void ver(void);
+void agregar(void);
+void modificar(void);
+void listar(void);
+
+
+void main(void)
+{
+char s='n';
+while(s!='s' && s!='S')
+{
+system("clear");
+printf("\n\n\nMENU DE OPCIONES  \n");
+printf("=================  \n");
+printf("C_ CARGA DE DATOS  \n");
+printf("V_ VER DATOS  \n");
+printf("A_ AGREGAR DATOS  \n");
+printf("M_ MODIFICAR DATOS  \n");
+printf("L_ LISTAR DATOS  \n");
+printf("S_ SALIR  \n");
+printf("OPCION:  \n");
+s=getchar();
+switch(s)
+{
+  case 'c':
+  case 'C':
+            carga();
+            break;
+  case 'v':
+  case 'V':
+            ver();
+            break;
+  case 'a':
+  case 'A':
+            agregar();
+            break;
+  case 'm':
+  case 'M':
+            modificar();
+            break;
+  case 'l':
+  case 'L':
+            listar();
+            break;
+}
+
+}
+
+printf("\n\n Fin del programa");
+system("pause");
+
+}
+
+
+
+
+
+
+
