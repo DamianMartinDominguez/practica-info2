@@ -67,7 +67,28 @@ system("pause");
 
 
 
+void carga(void)
+{
 
+}
+
+
+void ver(void)
+{
+
+}
+
+
+void modificar(void)
+{
+
+}
+
+
+void listar(void)
+{
+
+}
 
 
 
