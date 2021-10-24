@@ -4,7 +4,7 @@
 
 struct cliente
 {
-  char cl[6];
+  char clave[6];
   char nombre[20];
   float credito;
 }cliente_t;
@@ -69,9 +69,41 @@ system("pause");
 
 void carga(void)
 {
-
+int f;
+char s='n';
+FILE *p;
+if((p=fopen("menuABM","wb"))==NULL)
+{
+printf("\n problemas al abrir el archvo\n");
+getch();
+s=27;
 }
-
+while(s!='27')
+{
+system("clr");
+printf("\n\n\nMENU DE CARGA  \n");
+printf("=================  \n");
+printf("ingrese la clave \n");
+fflush(stdin);
+gets(cliente_t.clave);
+printf("ingrese el nombre  \n");
+fflush(stdin);
+gets(cliente_t.nombre);
+printf("ingrese el credito  \n");
+fflush(stdin);
+scanf("%f",&cliente_t.credito);
+f=fwrite(&cliente_t,sizeof(cliente_t),1,p);
+f(f!=1);
+{
+printf("\n no grabo el ultimo registro");
+getch();
+}
+fflush(stdin);
+printf("\n Toque una tecla para continuar, ESC para salir");
+s=getche();
+}
+fclose(p);
+}
 
 void ver(void)
 {
