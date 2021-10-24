@@ -156,6 +156,45 @@ fclose(p);
 }
 }
 
+void agregar(void)
+{
+int f;
+char s='n';
+FILE *p;
+if((p=fopen("menuABM","rb+"))==NULL)
+{
+printf("\n problemas al abrir el archvo\n");
+getch();
+s=27;
+}
+fseek(p,0l,2);
+while(s!='27')
+{
+system("clr");
+printf("\n\n\nMENU AGREGAR  \n");
+printf("=================  \n");
+printf("ingrese la clave \n");
+fflush(stdin);
+gets(cliente_t.clave);
+printf("ingrese el nombre  \n");
+fflush(stdin);
+gets(cliente_t.nombre);
+printf("ingrese el credito  \n");
+fflush(stdin);
+scanf("%f",&cliente_t.credito);
+f=fwrite(&cliente_t,sizeof(cliente_t),1,p);
+f(f!=1);
+{
+printf("\n no grabo el ultimo registro");
+getch();
+}
+fflush(stdin);
+printf("\n Toque una tecla para continuar, ESC para salir");
+s=getche();
+}
+fclose(p);
+}
+
 
 void modificar(void)
 {
