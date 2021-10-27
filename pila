@@ -58,13 +58,13 @@ int main()
     printf("\n carga de pila completada" );
     do
     {
-        printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", pila->data.nombre,pila->data.edad,->data.legajo);
+        printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", pila->data.nombre,pila->data.edad,pila->data.legajo);
         aux = pila;
         pila = pila->anterior;
         free(aux);
     }while(pila->anterior != NULL);
     printf("\n----------------------------------------------------------------");
-    printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", pila->data.nombre,pila->data.edad,->data.legajo);
+    printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", pila->data.nombre,pila->data.edad,pila->data.legajo);
     printf("\n----------------------------------------------------------------");
     printf("\nfin");
     free(pila);
