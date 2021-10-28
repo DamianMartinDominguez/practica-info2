@@ -73,9 +73,28 @@ void setCola(struct cola **p,struct cola **u)
       (*u)->l=aux;
       *u=aux;
     }
-    *u)->
+    *u)->l= NULL;
+}
+}
+fread(&fb,sizeof(struct datos),1,fp);
+}
+fclose(fp);
 }
 
+void genera_archivo(void)
+{
+struct datos bf[]={ 1,"juan primero",0x11,
+                    2,"juan segundo",0x12,
+                    3,"juan tercero",0x13,
+                    4,"juan cuarto",0x14,
+                    5,"juan quinto",0x15,
+                    6,"juan sexto",0x16,
+                    7,"juan septimo",0x17,
+                    8,"juan octavo",0x18,};
+FILE *fp=fopen("paciente.dat","wb");
+fwrite(fb,sizeof(struct datos),8,fp);
+fclose(fp);
+}
 
 
 
