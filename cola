@@ -1,6 +1,6 @@
 /******************************************************************************
 
-ejemplo pila
+ejemplo cola
 
 *******************************************************************************/
 #include <stdio.h>
@@ -17,8 +17,8 @@ typedef struct
 
 struct cola_t
 {
-    pila_t data;
-    struct pila_t *siguiente;
+    cola_t data;
+    struct cola_t *siguiente;
 }cola_t;
 
 int main()
