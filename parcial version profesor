@@ -23,4 +23,59 @@ struct datos{
             unsigned int tipo;
             };
 
-struct cola
+struct cola{
+            struct datos d;
+            struct cola*l;
+            };
+
+void genera archivo(void);
+void setCola(struct cola **p,struct cola **u);
+
+int main()
+{
+ struct cola *p=NULL, *u= NULL, *aux;
+ genera_archivo(void);
+ void setCola(&p,&u);
+ while(p)
+ {
+    printf("%4d %-20s 0x%x",p->d.id, p->d.n, p->d.tipo);
+    aux=p;
+    p=p->l;
+    free(aux);
+ }
+ system("pause");
+ return 0;
+}
+
+void setCola(struct cola **p,struct cola **u)
+{
+  struct datos bf;
+  struct cola *aux;
+  FILE *fp;
+  if(fp=fopen("paciente.dat",rb))== NULL)
+    {
+    printf("\n error en el archivo\n");
+    return 1;
+    }
+  fread(&bf,sizeof(struct datos),1,fp);
+  while(!feof(fp))
+  {
+  if(bf.tipo & 0x10)
+  {
+  aux = (struct cola*)malloc(sizeof(struct cola));
+  if(aux)
+  {
+    aux->d=bf;
+    if(*p==NULL)
+      *p= *u = aux;
+    else
+    {
+      (*u)->l=aux;
+      *u=aux;
+    }
+    *u)->
+}
+
+
+
+
