@@ -71,3 +71,17 @@ int main()
         
     return 0;
 }
+/*resumen y observaciones
+
+p o en este caso pila siempre queda apuntando al primer elemento y aux es usado para crear elementos.
+si se pierde el primer elemento la pila no se podra acceder nunca y la memoria asignada no se podra acceder y ocupara lugar.
+siempre se debe tener un puntero al primer elemento
+
+para crear una pila los pasos a seguir son:
+
+1_ reservar el lugar dinamicamente (en aux).
+2_ asignarle los datos a la parte informativa de la estructura pila.
+3_ el lazo de la estructura apunte primero (para que funcione con todos los elementos antes de empezar el proceso iterativo p = NULL.
+4_ el primero se apuntara al elemento creado en (1)
+
+*/
