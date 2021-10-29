@@ -1,4 +1,4 @@
-*/ existe un archivo binario "paciente.dat" secuencial con la siguiente estructura: 
+/* existe un archivo binario "paciente.dat" secuencial con la siguiente estructura: 
 
 int id;
 char n[30];
@@ -10,7 +10,7 @@ y el bit 4 en 1 significa analisis de sangre.
 crear una funcion que arme una cola con aquellos registros del archivo que corresponde analisis de sangre.
 mostrar los datos de la cola en el main y luego eliminarlos, 
 sabiendo que no hay variables globales 
-/*
+*/
 
 //codigo
 
