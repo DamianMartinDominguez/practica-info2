@@ -18,13 +18,13 @@ typedef struct
 struct cola_t
 {
     cola_t data;
-    struct cola_t *siguiente;
+    struct cola_t *siguiente;//struct cola *lazo
 }cola_t;
 
 int main()
 {
     datos_t nuevo;
-    struct cola_t *cola = NULL, *aux= NULL, *local = NULL;
+    struct cola_t *cola = NULL, *aux= NULL, *local = NULL;//struct cola *p,*u ___ y p=u=NULL
     short opc= 0;
     printf("\nejemplo cola con memoria dinamica\n");
     do
@@ -80,3 +80,35 @@ int main()
         
     return 0;
 }
+
+
+/*resumen y conclusiones
+
+struct cola {
+              int inf;
+              struct cola *lazo;
+             };
+int main()
+{
+    datos_t nuevo;
+    struct cola_t *p = NULL, *u= NULL;
+    //se le pasa un aux el valor del ultimo elemento
+    aux= u;
+    //si el aux=NULL la cola esta vacia.si pasa esto el elemento a crear hay que asignarle el primero y el ultimo poner luego el lazo a null
+    if(!aux)
+    {
+        aux=(struct cola*)malloc(sizeof(struct cola));
+        p=u=aux;
+        aux->lazo=NULL;
+        return;
+    }
+    else
+    {.....
+     //en el caso que no sea auxuliar igual a NULL es agregar un nuevo elemento a la cola
+     //despues se enlaza el ultimo con el recien creado
+    u->lazo=aux;
+     
+   //por ultimo hay que actualizar el ultimo elemento, debo mover u donde apunte el auxiliar
+   aux->lazo=NULL;
+   u=aux;    
+   */
