@@ -18,18 +18,18 @@ typedef struct
 struct pila_t
 {
     pila_t data;
-    struct pila_t *anterior;
+    struct pila_t *anterior;//*l puntero de lazo
 }pila_t;
 
 int main()
 {
     datos_t nuevo;
-    struct pila_t *pila = NULL, *aux= NULL;
+    struct pila_t *pila = NULL, *aux= NULL;//apuntan todos a null
     short opc= 0;
     printf("\nejemplo pila con memoria dinamica\n");
     do
     {
-        aux = (struct pila_t*)malloc(sizeof(struct pila_t));
+        aux = (struct pila_t*)malloc(sizeof(struct pila_t));//se asigna memoria dinamica
         if(aux==NULL)
         {
             printf("\n no hay memoria disponible\n");
@@ -39,15 +39,15 @@ int main()
         printf("\n ingrese el registro a apilar\n");
         printf("\n ingrese el nombre\n");
         fflush(stdin);
-        scanf("%s",&aux->data.nombre);
+        scanf("%s",&aux->data.nombre);//se asignan los datos en el auxiliar
         printf("\n ingrese la edad\n");
         fflush(stdin);
         scanf("%d",&aux->data.edad);
         printf("\n ingrese el legajo\n");
         fflush(stdin);
         scanf("%ld",&aux->data.legajo);
-        aux->anterior = pila;
-        pila = aux;
+        aux->anterior = pila;//aux->l= p
+        pila = aux;//p=aux
         printf("\ndesea seguir agregando datos?\n 1_S  2_N");
         fflush(stdin);
         scanf("%d",&opc);
