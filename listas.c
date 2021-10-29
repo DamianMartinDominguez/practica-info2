@@ -19,7 +19,7 @@ struct listaDoble_t
 {
     datos_t data;
     struct listadoble_t *siguiente, *anterior;
-}pila_t;
+}listaDoble_t;
 
 int main()
 {
