@@ -28,7 +28,22 @@ a= a & ~(1<<5); // donde estara poniendo un 1 en el bit 5
 
 //ahora podemos hacer una macro general para encender un bit
 
-#define setBit (variable, bit) variable= variable | (1<<bit);
+#define clearBit (variable, bit) variable= variable & ~(1<<bit);
 
+
+
+//como conmutar un bit de una variable?
+
+//si queremos cambiar el estado de solo un bit debemos utilira una mascara booleana
+
+a = a ^ 0x 0001 0000; // 0x es hexadecimal que seria E F
+
+//si me apoyo en el operador desplazamiento eria
+
+a= a ^(1<<5); // donde estara poniendo un 1 en el bit 5
+
+//ahora podemos hacer una macro general para encender un bit
+
+#define toggleBit (variable, bit) variable= variable ^(1<<bit);
 
 
