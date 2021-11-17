@@ -14,9 +14,6 @@ sabiendo que no hay variables globales
 
 //codigo
 
-#include <stdio.h>
-#include <stdlib.h>
-
 struct datos{
             int id;
             char n[30];
@@ -28,17 +25,18 @@ struct cola{
             struct cola*l;
             };
 
-void genera archivo(void);
+void generaArchivo(void);
 void setCola(struct cola **p,struct cola **u);
 
 int main()
 {
  struct cola *p=NULL, *u= NULL, *aux;
- genera_archivo(void);
- void setCola(&p,&u);
+ generaArchivo();
+
+ setCola(&p,&u);
  while(p)
  {
-    printf("%4d %-20s 0x%x",p->d.id, p->d.n, p->d.tipo);
+    printf("%4d %-20s 0x%x\n",p->d.id, p->d.n, p->d.tipo);
     aux=p;
     p=p->l;
     free(aux);
@@ -52,9 +50,10 @@ void setCola(struct cola **p,struct cola **u)
   struct datos bf;
   struct cola *aux;
   FILE *fp;
-  if(fp=fopen("paciente.dat",rb))== NULL)
+  if((fp=fopen("paciente.dat","rb"))== NULL)
     {
     printf("\n error en el archivo\n");
+
     return 1;
     }
   fread(&bf,sizeof(struct datos),1,fp);
@@ -73,15 +72,15 @@ void setCola(struct cola **p,struct cola **u)
       (*u)->l=aux;
       *u=aux;
     }
-    *u)->l= NULL;
+    (*u)->l= NULL;
 }
 }
-fread(&fb,sizeof(struct datos),1,fp);
+fread(&bf,sizeof(struct datos),1,fp);
 }
 fclose(fp);
 }
 
-void genera_archivo(void)
+void generaArchivo(void)
 {
 struct datos bf[]={ 1,"juan primero",0x11,
                     2,"juan segundo",0x12,
@@ -92,9 +91,10 @@ struct datos bf[]={ 1,"juan primero",0x11,
                     7,"juan septimo",0x17,
                     8,"juan octavo",0x18,};
 FILE *fp=fopen("paciente.dat","wb");
-fwrite(fb,sizeof(struct datos),8,fp);
+
+fwrite(bf,sizeof(struct datos),8,fp);
+printf("\n\n");
 fclose(fp);
 }
-
 
 
