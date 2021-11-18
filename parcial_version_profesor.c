@@ -59,7 +59,9 @@ void setCola(struct cola **p,struct cola **u)
   fread(&bf,sizeof(struct datos),1,fp);
   while(!feof(fp))
   {
-  if(bf.tipo & 0x10)
+  
+  if(bf.tipo & 0x10)//si quiero que este el bit 4 que es la posicion 5 en 1
+  //if(!(bf.tipo & 0x10)) si quiero que este el bit 4 que es la posicion 5 en 0 
   {
   aux = (struct cola*)malloc(sizeof(struct cola));
   if(aux)
