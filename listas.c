@@ -1,24 +1,22 @@
 /******************************************************************************
-
 ejemplo lista
-
 *******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
+
 
 typedef struct
 {
     char nombre[30];
     unsigned short edad;
     long legajo;
-    
+
 }datos_t;
 
 struct listaDoble_t
 {
     datos_t data;
-    struct listadoble_t *siguiente, *anterior;
+    struct listaDoble_t *siguiente, *anterior;
 };
 
 int main()
@@ -34,7 +32,7 @@ int main()
         {
             printf("\n no hay memoria disponible\n");
             return 0;
-            
+
         }
         printf("\n ingrese el registro de la lista\n");
         printf("\n ingrese el nombre\n");
@@ -54,7 +52,7 @@ int main()
          }
          else
          {
-          local = lista;  
+          local = lista;
           while((local->data.edad <= aux->data.edad) && (local->siguiente != NULL))
           {
             local = local->siguiente;
@@ -62,7 +60,9 @@ int main()
           //reemplazo a local
           if(local->data.edad > aux->data.edad)//registro intermedio
           {
-            if(aux->anterior != NULL) aux->anterior->siguiente = aux;
+            if((aux->anterior) != NULL)
+
+            aux->anterior->siguiente = aux;
             else lista = aux;
             aux->anterior = local->anterior;
             local->anterior = aux;
@@ -73,15 +73,15 @@ int main()
            local->siguiente = aux;
            aux->anterior = local;
            aux->siguiente = NULL;
-           
-           
-   
+
+
+           }}
         printf("\ndesea seguir agregando datos?\n 1_S  2_N");
         fflush(stdin);
         scanf("%d",&opc);
-        
-        
-            
+
+
+
     }while(opc == 1);
     printf("\n carga de pila completada" );
     do
@@ -91,28 +91,28 @@ int main()
         scanf("%d",&opc);
         if(opc == 2)
         {
-          local = lista; 
+          local = lista;
           do{
            printf("\n----------------------------------------------------------------");
-           printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", pila->data.nombre,pila->data.edad,->data.legajo);
+           printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", local->data.nombre,local->data.edad,local->data.legajo);
            local= local->siguiente;
         }while(local->siguiente != NULL);
          printf("\n----------------------------------------------------------------");
-         printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", pila->data.nombre,pila->data.edad,->data.legajo);
+         printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", local->data.nombre,local->data.edad,local->data.legajo);
          printf("\n----------------------------------------------------------------");
         }
         if(opc == 1)
         {
-          local = lista; 
+          local = lista;
           while(local->siguiente != NULL)
             local = local->siguiente;
           do{
               printf("\n----------------------------------------------------------------");
-              printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", pila->data.nombre,pila->data.edad,->data.legajo);
+              printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", local->data.nombre,local->data.edad,local->data.legajo);
               local= local->anterior;
              }while(local->anterior != NULL);
              printf("\n----------------------------------------------------------------");
-             printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", pila->data.nombre,pila->data.edad,->data.legajo);
+             printf("\n el registro contiene :\n Nombre:%s  \nEdad: %d \nLegajo: %ld", local->data.nombre,local->data.edad,local->data.legajo);
              printf("\n----------------------------------------------------------------");
              }
              }while(opc != 3);
@@ -124,6 +124,6 @@ int main()
               }while(lista->siguiente != NULL);
               free(lista);
               printf("\nfin");
-        
+
     return 0;
 }
