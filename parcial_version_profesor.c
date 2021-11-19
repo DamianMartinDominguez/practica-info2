@@ -4,7 +4,7 @@ int id;
 char n[30];
 unsigned int tipo;
 
-que prentan los datos de un paciente que se efectuara un analisis donde la variable tipo
+esta estructura presenta los datos de un paciente que se efectuara un analisis donde la variable tipo
 es un numero binario que en su bit numero 3 indica con 1 significa analisis de orina,
 y el bit 4 en 1 significa analisis de sangre.
 crear una funcion que arme una cola con aquellos registros del archivo que corresponde analisis de sangre.
