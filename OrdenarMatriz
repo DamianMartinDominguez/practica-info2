@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+int main(){
+    int i,j,k,may=0,lega,aux,leg=0,nota=0;
+    int ma[5][2];
+    char nom[5][10], nombre;
+    for(i=0;i<5;i++){
+
+        printf("ingrese legajo;");
+        scanf("%d",&leg);
+        printf("ingrese nota");
+        scanf("%d",&nota);
+
+        ma[i][1]=leg;
+        ma[i][2]=nota;
+        may=nota;
+        
+        
+    }
+    for(i=0;i<5;i++){
+        if(may<ma[i][2]){
+            may=ma[i][2];
+        }
+    }
+    printf("ei mayor es: %d\n",may);
+
+    for(i=0;i<5-1;i++){
+        for(j=i+1;j<5;j++){
+            if(ma[i][2]>ma[j][2]){
+                for(k=0;k<5;k++){
+                    aux=ma[i][k];
+                    ma[i][k]=ma[j][k];
+                    ma[j][k]=aux;
+                }
+            }
+
+        }
+    }
+    for(i=0;i<5;i++){
+        printf("\n");
+        for(j=i;j<2;j++){
+            printf("leg[%d] nota[%d]\n",ma[i][j]);
+        }
+            
+
+        }
+    
+
+
+}
